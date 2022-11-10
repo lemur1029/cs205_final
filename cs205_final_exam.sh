@@ -19,25 +19,21 @@ HP=`awk '
 BEGIN{FS="\t"}
 BEGIN{
 	sum = 0
-	lines = 0
 }
 {
 	sum += $6
-	lines += 1
 }
-END {if (lines > 0) print sum / (lines-1)}
+END {if (NR - 1 > 0) print sum / (NR - 1)}
 ' $1`;
 ATK=`awk '
 BEGIN{FS="\t"}
 BEGIN{
 	sum = 0
-	lines = 0
 }
 {
 	sum += $7
-	lines += 1
 }
-END {if (lines > 0) print sum / (lines-1)}
+END {if (NR - 1 > 0) print sum / (NR - 1)}
 
 ' $1`;
 echo "
